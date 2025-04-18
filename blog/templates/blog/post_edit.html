@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <h2>Edit Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div id="editor" style="min-height: 200px;">{{ post.content|safe }}</div>
+        <input type="hidden" name="content" id="content">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        var quill = new Quill('#editor', { theme: 'snow' });
+        quill.root.innerHTML = '{{ post.content|escapejs }}';
+        document.querySelector('form').onsubmit = function() {
+            document.querySelector('#content').value = quill.root.innerHTML;
+        };
+        $('[data-role="tagsinput"]').select2({
+            tags: true,
+            tokenSeparators: [',']
+        });
+    </script>
+{% endblock %}

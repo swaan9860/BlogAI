@@ -1,0 +1,51 @@
+<!-- blog/post_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    {% if post.picture %}
+        <img src="{{ post.picture.url }}" class="img-fluid mb-3" alt="{{ post.title }}">
+    {% endif %}
+    <p>{{ post.content|safe }}</p>
+    <p><small>By {{ post.author }} on {{ post.created_at|date:"F d, Y" }}</small></p>
+    <p>Category: {{ post.category }}</p>
+    <p>Tags: 
+        {% for tag in post.tags.all %}
+            <a href="#">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    {% if user.username == post.author.username %}
+        <a href="{% url 'edit_post' post.slug %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <p>{{ comment.content }}</p>
+                <p><small>By {{ comment.author }} on {{ comment.created_at|date:"F d, Y" }}</small></p>
+                {% for reply in comment.replies.all %}
+                    <div class="card ms-4 mt-2">
+                        <div class="card-body">
+                            <p>{{ reply.content }}</p>
+                            <p><small>By {{ reply.author }} on {{ reply.created_at|date:"F d, Y" }}</small></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <h4>Add Comment</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> to comment.</p>
+    {% endif %}
+{% endblock %}

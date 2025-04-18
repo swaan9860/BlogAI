@@ -1,0 +1,212 @@
+/* static/css/styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+h2, h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-title a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-title a:hover {
+    text-decoration: underline;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.card-text small {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.card-text p a {
+    color: #17a2b8;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.card-text p a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-control {
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+textarea.form-control {
+    min-height: 150px;
+}
+
+.input-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+}
+
+.img-fluid {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.card.mb-2 {
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+}
+
+.card.ms-4 {
+    background-color: #f8f9fa;
+}
+
+.alert {
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+#search-results {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ui-menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.ui-menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        max-height: 150px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+}
