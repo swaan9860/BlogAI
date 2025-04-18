@@ -1,0 +1,8 @@
+#!/home/swaan-maharjan/Documents/Project/Blog_Platform_With_AI_Content_Moderation/BlogAI/env/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+from huggingface_hub.commands.huggingface_cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
